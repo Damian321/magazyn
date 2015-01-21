@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projekt;
+package projekt.dekorator;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import projekt.Towar;
 
 
 /**
