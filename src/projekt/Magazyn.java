@@ -18,7 +18,7 @@ public class Magazyn {
     private DatabaseConn dbConn = DatabaseConn.GetInstance();
 
     public void dodajTowar(Towar towar){
-        dbConn.addTowar(towar);
+        dbConn.dodajTowar(towar);
         lista_towarow.add(towar);
     }
     

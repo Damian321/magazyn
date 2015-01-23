@@ -5,7 +5,6 @@
  */
 package projekt;
 
-
 import projekt.dekorator.Zamowienie;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -43,28 +42,28 @@ public class DatabaseConn {
         }
     }
 
-    public void addTowar(Towar towar){
-          try {
-          
+    public void dodajTowar(Towar towar) {
+        try {
+
             stmt = conn.createStatement();
             stmt.execute("INSERT INTO TOWAR(nazwa,ilosc,cena,stawkavat) VALUES('"
-                    +towar.getNazwa()+"',"+towar.getIlosc()
-            + "," + towar.getCena()+","+towar.getStawkaVAT()+")");
-           
+                    + towar.getNazwa() + "'," + towar.getIlosc()
+                    + "," + towar.getCena() + "," + towar.getStawkaVAT() + ")");
+
             stmt.close();
         } catch (SQLException sqlExcept) {
             sqlExcept.printStackTrace();
         }
     }
-    
-    public Towar findTowarByName(String nazwa){
-            Towar towar = new Towar();
-         try {
-          
-            stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from towar where nazwa like '"+nazwa+"'");
 
-            while (rs.next()) {     
+    public Towar findTowarByName(String nazwa) {
+        Towar towar = new Towar();
+        try {
+
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from towar where nazwa like '" + nazwa + "'");
+
+            while (rs.next()) {
                 towar.setId(rs.getInt("id"));
                 towar.setNazwa(rs.getString("nazwa"));
                 towar.setIlosc(rs.getInt("ilosc"));
@@ -76,11 +75,11 @@ public class DatabaseConn {
         } catch (SQLException sqlExcept) {
             sqlExcept.printStackTrace();
         }
-        return towar;       
+        return towar;
     }
-    
+
     public List<Towar> findAllTowar() {
-        List<Towar> lista_towarow=new ArrayList<Towar>();
+        List<Towar> lista_towarow = new ArrayList<Towar>();
         try {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select * from towar");
@@ -101,8 +100,9 @@ public class DatabaseConn {
         }
         return lista_towarow;
     }
-      public List<Zamowienie> findAllZamowienie() {
-        List<Zamowienie> lista_zamowien=new ArrayList<Zamowienie>();
+
+    public List<Zamowienie> findAllZamowienie() {
+        List<Zamowienie> lista_zamowien = new ArrayList<Zamowienie>();
         try {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select * from zamowienia");
@@ -123,4 +123,17 @@ public class DatabaseConn {
         return lista_zamowien;
     }
 
+    public void dodajZamowienie(Zamowienie zamowienie) {
+        try {
+
+            stmt = conn.createStatement();
+            stmt.execute("INSERT INTO zamowienia(data_zamowienia,imie,nazwisko,rabat) VALUES(current_date,'"
+                    + zamowienie.getImie() + "','" + zamowienie.getNazwisko()
+                    + "'," + zamowienie.getRabat() + ")");
+
+            stmt.close();
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
+        }
+    }
 }

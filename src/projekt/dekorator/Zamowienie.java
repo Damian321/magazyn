@@ -5,6 +5,8 @@
  */
 package projekt.dekorator;
 
+import projekt.DatabaseConn;
+
 /**
  *
  * @author Kostek
@@ -12,8 +14,10 @@ package projekt.dekorator;
 public class Zamowienie extends ZamowienieInterfejs{ 
     @Override
     public void RealizacjaZamowienia(){
+        DatabaseConn dbconn = DatabaseConn.GetInstance();
+        
+        dbconn.dodajZamowienie(this);
         System.out.println("zwykle zamowienie");
-        System.out.println(this.getImie());
-        System.out.println(this.getRabat());
+        System.out.println(this.toString());
     }
 }
