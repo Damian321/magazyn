@@ -113,7 +113,6 @@ public class DatabaseConn {
                 zamowienie.setImie(rs.getString("imie"));
                 zamowienie.setNazwisko(rs.getString("nazwisko"));
                 zamowienie.setData_zamowienia(rs.getDate("data_zamowienia"));
-                zamowienie.setRabat(rs.getDouble("rabat"));
                 lista_zamowien.add(zamowienie);
             }
             rs.close();

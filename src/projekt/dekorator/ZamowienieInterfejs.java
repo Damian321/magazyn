@@ -68,7 +68,7 @@ public abstract class ZamowienieInterfejs {
         return imie;
     }
 
-    public void setRabat(Double rabat) {
+    protected void setRabat(Double rabat) {
         this.rabat = rabat;
     }
 

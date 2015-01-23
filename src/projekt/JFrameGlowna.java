@@ -520,8 +520,7 @@ public class JFrameGlowna extends javax.swing.JFrame {
         int x=0;        
         for(Zamowienie zam:lista_zamowien){
              model.add(x, zam.getImie()+","+zam.getNazwisko()+
-                     ","+zam.getData_zamowienia().toString()+
-                     ","+zam.getRabat());
+                     ","+zam.getData_zamowienia().toString());                     
              x++;
         }
         
@@ -534,7 +533,6 @@ public class JFrameGlowna extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // ZAMOWIENIE
-        
         zamowienie.setImie(imieText.getText());
         zamowienie.setNazwisko(nazwiskoText.getText());
         ZamowienieInterfejs zam;
