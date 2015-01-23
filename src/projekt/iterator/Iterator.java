@@ -10,6 +10,6 @@ package projekt.iterator;
  *
  * @author Damian
  */
-public class IteratorInterfejs {
-    
+public interface Iterator {
+    public void ReplaceIloscByName(String nazwa, int ilosc);
 }

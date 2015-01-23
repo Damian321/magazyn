@@ -10,6 +10,6 @@ package projekt.iterator;
  *
  * @author Damian
  */
-public class Kolekcja {
-    
+public interface Kolekcja {
+    public Iterator getIterator();
 }
