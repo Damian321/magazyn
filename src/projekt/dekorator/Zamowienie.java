@@ -15,9 +15,8 @@ import java.util.List;
  */
 public class Zamowienie extends ZamowienieInterfejs{ 
     @Override
-    public void RealizacjaZamowienia(double rabat, Boolean czyFaktura){
+    public void RealizacjaZamowienia(){
         System.out.println("zwykle zamowienie");
-         System.out.println("RAbaT: " + rabat);
-         System.out.println("Faktura: " + czyFaktura);
+   
     }
 }

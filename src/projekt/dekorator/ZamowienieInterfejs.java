@@ -31,7 +31,7 @@ public abstract class ZamowienieInterfejs {
         lista_towarow.add(towar);
     }
     
-    public void RealizacjaZamowienia(double rabat, Boolean czyFaktura){
+    public void RealizacjaZamowienia(){
        
     }
     public int getId() {

@@ -23,9 +23,13 @@ public class Projekt {
         DatabaseConn dbConn = DatabaseConn.GetInstance();
         dbConn.createConnection();
    
-        ZamowienieInterfejs zam = new ZamowienieFaktura(new ZamowienieRabat(new Zamowienie()));
+        Zamowienie zamowienie = new Zamowienie();
+        zamowienie.setImie("Alfred");
+        System.out.println("Zamowienie składa: "+ zamowienie.getImie());
+        ZamowienieInterfejs zam = new ZamowienieFaktura(new ZamowienieRabat(zamowienie));
         
-        zam.RealizacjaZamowienia(0, false);
+        
+        zam.RealizacjaZamowienia();
     
      
        

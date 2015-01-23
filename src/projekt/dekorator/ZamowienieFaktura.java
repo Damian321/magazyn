@@ -15,9 +15,10 @@ public class ZamowienieFaktura extends Dekorator{
     }
 
  @Override
-    public void RealizacjaZamowienia(double rabat, Boolean czyFaktura){
+    public void RealizacjaZamowienia(){
         System.out.println("faktura");
-        zamowienie.RealizacjaZamowienia(0, true);
+         System.out.println("Jeszcze raz: " + zamowienie.getImie());
+        zamowienie.RealizacjaZamowienia();
     }
     
 }

@@ -279,6 +279,11 @@ public class JFrameGlowna extends javax.swing.JFrame {
         jCheckBox2.setText("Faktura");
 
         jButton7.setText("Zamów");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -523,6 +528,10 @@ public class JFrameGlowna extends javax.swing.JFrame {
     private void rabatSet(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rabatSet
 
     }//GEN-LAST:event_rabatSet
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // ZAMOWIENIE
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
