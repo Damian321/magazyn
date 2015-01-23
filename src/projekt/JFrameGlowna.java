@@ -145,13 +145,13 @@ public class JFrameGlowna extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Nazwa:");
+        jLabel2.setText("Nazwa");
 
-        jLabel3.setText("Cena:");
+        jLabel3.setText("Cena");
 
         jLabel4.setText("Stawka VAT");
 
-        jLabel5.setText("Ilość:");
+        jLabel5.setText("Ilość");
 
         jButton5.setText("Dodaj");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -313,8 +313,8 @@ public class JFrameGlowna extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel5, "card5");

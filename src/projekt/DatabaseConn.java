@@ -42,6 +42,30 @@ public class DatabaseConn {
         }
     }
 
+    public void zmienIlosc(String nazwa,int ilosc){
+          try {
+
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select ilosc from towar where nazwa like '" + nazwa + "'");
+
+            int tmp=0;
+            while (rs.next()){
+                tmp = rs.getInt("ilosc");
+            }
+            tmp -= ilosc;
+            if(tmp<0) tmp=0;
+            System.out.println("Ilosc: " + tmp);
+            
+            String query="UPDATE towar SET ilosc="+ilosc+" where nazwa LIKE '"+nazwa+"'";
+            stmt.execute(query);
+
+            stmt.close();
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
+        }
+        
+    }
+    
     public void dodajTowar(Towar towar) {
         try {
 

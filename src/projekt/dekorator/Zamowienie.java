@@ -6,6 +6,7 @@
 package projekt.dekorator;
 
 import projekt.DatabaseConn;
+import projekt.Towar;
 
 /**
  *
@@ -17,6 +18,10 @@ public class Zamowienie extends ZamowienieInterfejs{
         DatabaseConn dbconn = DatabaseConn.GetInstance();
         
         dbconn.dodajZamowienie(this);
+        
+        for(Towar towar:this.getLista_towarow())
+            dbconn.zmienIlosc(towar.getNazwa(), towar.getIlosc());
+        
         System.out.println("zwykle zamowienie");
     }
 }
