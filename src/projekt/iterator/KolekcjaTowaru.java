@@ -28,7 +28,7 @@ public class KolekcjaTowaru implements Kolekcja{
         public void ReplaceIloscByName(String nazwa, int ilosc){
             for(Towar towar: lista_towarow){
                 if(towar.getNazwa().equals(nazwa)){
-                    towar.setIlosc(ilosc);
+                    towar.setIlosc(towar.getIlosc()-ilosc);
                     lista_towarow.set(index, towar);
                 }
                 index++;

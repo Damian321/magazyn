@@ -8,6 +8,7 @@ import projekt.dekorator.Faktura;
 import projekt.dekorator.Rabat;
 import projekt.dekorator.Zamowienie;
 import projekt.dekorator.ZamowienieInterfejs;
+import projekt.iterator.KolekcjaTowaru;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -433,7 +434,7 @@ public class JFrameGlowna extends javax.swing.JFrame {
         
         
         List<Towar> towary = new ArrayList();
-        towary = dbConn.findAllTowar();
+        towary = magazyn.getLista_towarow();
         DefaultListModel model = new DefaultListModel();
         
         int x=0;        
@@ -494,12 +495,18 @@ public class JFrameGlowna extends javax.swing.JFrame {
         
         Towar towar = new Towar();
                 
+        
         towar.setCena(Double.parseDouble(towarStrTab[1]));
         towar.setIlosc(Integer.parseInt(jTextField1.getText()));
         towar.setNazwa(towarStrTab[0]);
         towar.setStawkaVAT(Double.parseDouble(towarStrTab[3]));        
                       
         zamowienie.dodajTowar(towar);
+        KolekcjaTowaru kolekcja = new KolekcjaTowaru();
+        kolekcja.lista_towarow = magazyn.getLista_towarow();        
+        kolekcja.getIterator().ReplaceIloscByName(towar.getNazwa(), towar.getIlosc());
+
+        magazyn.setLista_towarow(kolekcja.lista_towarow);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -517,6 +524,7 @@ public class JFrameGlowna extends javax.swing.JFrame {
         lista_zamowien = dbConn.findAllZamowienie();
         DefaultListModel model = new DefaultListModel();
         
+        System.out.println(lista_zamowien);
         int x=0;        
         for(Zamowienie zam:lista_zamowien){
              model.add(x, zam.getImie()+","+zam.getNazwisko()+

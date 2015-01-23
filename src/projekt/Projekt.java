@@ -5,11 +5,6 @@
  */
 package projekt;
 
-import projekt.dekorator.Rabat;
-import projekt.dekorator.Faktura;
-import projekt.dekorator.Zamowienie;
-import projekt.dekorator.ZamowienieInterfejs;
-
 /**
  *
  * @author Kostek
