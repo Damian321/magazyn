@@ -22,9 +22,12 @@ public abstract class ZamowienieInterfejs {
     private String imie;
     private String nazwisko;
     private Double rabat;
+    public Double oplata;
+
 
     public ZamowienieInterfejs() {
-        this.rabat = 0.0;
+        this.oplata = 0.0;
+        this.rabat = 1.0;
         this.lista_towarow = new ArrayList<Towar>();
     }
     
@@ -45,8 +48,10 @@ public abstract class ZamowienieInterfejs {
 
     @Override
     public String toString() {
-        return "ZamowienieInterfejs{" + "id=" + id + ", data_zamowienia=" + data_zamowienia + ", lista_towarow=" + lista_towarow + ", imie=" + imie + ", nazwisko=" + nazwisko + ", rabat=" + rabat + '}';
+        return "ZamowienieInterfejs{" + "id=" + id + ", data_zamowienia=" + data_zamowienia + ", lista_towarow=" + lista_towarow + ", imie=" + imie + ", nazwisko=" + nazwisko + ", rabat=" + rabat + ", oplata=" + oplata + '}';
     }
+
+    
 
     public Date getData_zamowienia() {
         return data_zamowienia;

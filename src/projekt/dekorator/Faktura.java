@@ -28,8 +28,8 @@ public class Faktura extends Dekorator {
     public void RealizacjaZamowienia() {
         PrintWriter zapis = null;
         System.out.println("DRUKOWANIE FAKTURY");
-        System.out.println("------------------");
-        zamowienie.setRabat(this.getRabat());      
+        zamowienie.setRabat(this.getRabat());   
+        zamowienie.oplata = Math.floor(this.getRabat()*zamowienie.oplata);
         
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date date = new Date();
@@ -47,7 +47,7 @@ public class Faktura extends Dekorator {
                     "Nazwa firmy <br>ul. Wiejska 54 <br>15-001 Bialystok <br>"+
                     "NIP: 242342543656291 <br></p></div><div id=\"dziecko\"><h2>Nabywca:</h2>"+
                     "<p>"+zamowienie.getImie()+" "+zamowienie.getNazwisko()+"<br><br><br><br></p>"+
-                    "</div></div><hr><h2><center> Lista produktów:</center></h2>"+
+                    "</div></div><h2><hr><center> Lista produktów:</center></h2>"+
                     "<center><table border=\"1\"><tr bgcolor=\"lightgrey\">"+
                     "<td>Nazwa produktu</td><td>Ilosc</td><td>Stawka VAT</td><td>cena</td>");
                     
@@ -58,7 +58,8 @@ public class Faktura extends Dekorator {
                 zapis.print("</tr>");
             }
                     
-            zapis.print("</table></center></body></html>");
+            zapis.print("<tr bgcolor=lightgrey><td></td><td></td><td></td><td>"+zamowienie.oplata
+                    +"</td></tr></table></center><hr></body></html>");
             
             
             zapis.close();

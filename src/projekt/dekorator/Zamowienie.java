@@ -18,6 +18,5 @@ public class Zamowienie extends ZamowienieInterfejs{
         
         dbconn.dodajZamowienie(this);
         System.out.println("zwykle zamowienie");
-        System.out.println(this.toString());
     }
 }
