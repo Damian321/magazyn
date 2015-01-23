@@ -17,10 +17,9 @@ public class Faktura extends Dekorator {
 
     @Override
     public void RealizacjaZamowienia() {
-        System.out.println("faktura");
-        System.out.println("Imie: " + zamowienie.getImie());
+        System.out.println("DRUKOWANIE FAKTURY");
+        System.out.println("------------------");
         zamowienie.setRabat(this.getRabat());
-        System.out.println("Rabat: " + this.getRabat());
         zamowienie.RealizacjaZamowienia();
     }
 

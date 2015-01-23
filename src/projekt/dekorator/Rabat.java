@@ -18,7 +18,7 @@ public class Rabat extends Dekorator{
     @Override
     public void RealizacjaZamowienia(){
        zamowienie.setRabat(29.53);
-        System.out.println("rabat");
+        System.out.println("RABAT PRZYZNANY");
         zamowienie.RealizacjaZamowienia();
     }
 }
