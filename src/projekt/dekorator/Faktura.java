@@ -9,16 +9,19 @@ package projekt.dekorator;
  *
  * @author Kostek
  */
-public class ZamowienieFaktura extends Dekorator{
-    public ZamowienieFaktura(ZamowienieInterfejs zamowienie) {
+public class Faktura extends Dekorator {
+
+    public Faktura(ZamowienieInterfejs zamowienie) {
         super(zamowienie);
     }
 
- @Override
-    public void RealizacjaZamowienia(){
+    @Override
+    public void RealizacjaZamowienia() {
         System.out.println("faktura");
-         System.out.println("Jeszcze raz: " + zamowienie.getImie());
+        System.out.println("Imie: " + zamowienie.getImie());
+        zamowienie.setRabat(this.getRabat());
+        System.out.println("Rabat: " + this.getRabat());
         zamowienie.RealizacjaZamowienia();
     }
-    
+
 }

@@ -5,10 +5,6 @@
  */
 package projekt.dekorator;
 
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author Kostek
@@ -17,6 +13,7 @@ public class Zamowienie extends ZamowienieInterfejs{
     @Override
     public void RealizacjaZamowienia(){
         System.out.println("zwykle zamowienie");
-   
+        System.out.println(this.getImie());
+        System.out.println(this.getRabat());
     }
 }

@@ -9,24 +9,16 @@ package projekt.dekorator;
  *
  * @author Kostek
  */
-public class ZamowienieRabat extends Dekorator{
+public class Rabat extends Dekorator{
 
-    public ZamowienieRabat(ZamowienieInterfejs zamowienie) {
-       
+    public Rabat(ZamowienieInterfejs zamowienie) {
         super(zamowienie);
     }
     
     @Override
     public void RealizacjaZamowienia(){
+       zamowienie.setRabat(29.53);
         System.out.println("rabat");
-        System.out.println("Jeszcze raz: " + zamowienie.getImie());
         zamowienie.RealizacjaZamowienia();
     }
-    public void ustawRabat(double rabat){
-        zamowienie.setRabat(rabat);
-        System.out.println(zamowienie.getRabat());
-        System.out.println("rabat ustawiony");
-    }
-
-
 }

@@ -24,6 +24,7 @@ public abstract class ZamowienieInterfejs {
     private Double rabat;
 
     public ZamowienieInterfejs() {
+        this.rabat = 0.0;
         this.lista_towarow = new ArrayList<Towar>();
     }
     
@@ -54,7 +55,7 @@ public abstract class ZamowienieInterfejs {
         return lista_towarow;
     }
 
-    public void setLista_towarow(ArrayList<Towar> lista_towarow) {
+    public void setLista_towarow(List<Towar> lista_towarow) {
         this.lista_towarow = lista_towarow;
     }
 

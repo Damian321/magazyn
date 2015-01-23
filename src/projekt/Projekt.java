@@ -5,8 +5,8 @@
  */
 package projekt;
 
-import projekt.dekorator.ZamowienieRabat;
-import projekt.dekorator.ZamowienieFaktura;
+import projekt.dekorator.Rabat;
+import projekt.dekorator.Faktura;
 import projekt.dekorator.Zamowienie;
 import projekt.dekorator.ZamowienieInterfejs;
 
@@ -26,8 +26,8 @@ public class Projekt {
         Zamowienie zamowienie = new Zamowienie();
         zamowienie.setImie("Alfred");
         System.out.println("Zamowienie składa: "+ zamowienie.getImie());
-        ZamowienieInterfejs zam = new ZamowienieFaktura(new ZamowienieRabat(zamowienie));
-        
+        ZamowienieInterfejs zam = new Rabat(new Faktura(zamowienie));
+       
         
         zam.RealizacjaZamowienia();
     
