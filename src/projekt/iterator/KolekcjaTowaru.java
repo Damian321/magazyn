@@ -16,6 +16,10 @@ import projekt.Towar;
 public class KolekcjaTowaru implements Kolekcja{
     public List<Towar> lista_towarow;
     
+    public KolekcjaTowaru(List<Towar> lista_towarow){
+        this.lista_towarow = lista_towarow;
+    }
+    
     public Iterator getIterator(){
         return new TowarIterator();
     }
