@@ -1,10 +1,13 @@
 package projekt;
 
-import projekt.dekorator.Zamowienie;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import projekt.dekorator.Faktura;
+import projekt.dekorator.Rabat;
+import projekt.dekorator.Zamowienie;
+import projekt.dekorator.ZamowienieInterfejs;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -63,12 +66,12 @@ public class JFrameGlowna extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        imieText = new javax.swing.JTextField();
+        nazwiskoText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        rabatCheckBox = new javax.swing.JCheckBox();
+        fakturaCheckBox = new javax.swing.JCheckBox();
         jButton7 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -269,14 +272,14 @@ public class JFrameGlowna extends javax.swing.JFrame {
 
         jLabel8.setText("Nazwisko");
 
-        jCheckBox1.setText("Rabat");
-        jCheckBox1.addChangeListener(new javax.swing.event.ChangeListener() {
+        rabatCheckBox.setText("Rabat");
+        rabatCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 rabatSet(evt);
             }
         });
 
-        jCheckBox2.setText("Faktura");
+        fakturaCheckBox.setText("Faktura");
 
         jButton7.setText("Zamów");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -292,17 +295,17 @@ public class JFrameGlowna extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imieText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nazwiskoText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(jCheckBox1)
+                        .addComponent(rabatCheckBox)
                         .addGap(18, 18, 18)
-                        .addComponent(jCheckBox2)))
+                        .addComponent(fakturaCheckBox)))
                 .addContainerGap(133, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -323,10 +326,10 @@ public class JFrameGlowna extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
+                    .addComponent(imieText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nazwiskoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rabatCheckBox)
+                    .addComponent(fakturaCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
                 .addComponent(jButton7)
                 .addGap(26, 26, 26))
@@ -515,10 +518,10 @@ public class JFrameGlowna extends javax.swing.JFrame {
         DefaultListModel model = new DefaultListModel();
         
         int x=0;        
-        for(Zamowienie zamowienie:lista_zamowien){
-             model.add(x, zamowienie.getImie()+","+zamowienie.getNazwisko()+
-                     ","+zamowienie.getData_zamowienia().toString()+
-                     ","+zamowienie.getRabat());
+        for(Zamowienie zam:lista_zamowien){
+             model.add(x, zam.getImie()+","+zam.getNazwisko()+
+                     ","+zam.getData_zamowienia().toString()+
+                     ","+zam.getRabat());
              x++;
         }
         
@@ -531,6 +534,20 @@ public class JFrameGlowna extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // ZAMOWIENIE
+        
+        zamowienie.setImie(imieText.getText());
+        zamowienie.setNazwisko(nazwiskoText.getText());
+        ZamowienieInterfejs zam;
+        if(rabatCheckBox.isSelected() && fakturaCheckBox.isSelected())
+            zam = new Rabat(new Faktura(zamowienie));
+        else if(rabatCheckBox.isSelected())          
+            zam = new Rabat(zamowienie);
+        else if(fakturaCheckBox.isSelected())   
+            zam = new Faktura(zamowienie);
+        else
+            zam = zamowienie;
+        
+        zam.RealizacjaZamowienia();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
@@ -570,6 +587,8 @@ public class JFrameGlowna extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dodajPanel;
+    private javax.swing.JCheckBox fakturaCheckBox;
+    private javax.swing.JTextField imieText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -577,8 +596,6 @@ public class JFrameGlowna extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -599,13 +616,13 @@ public class JFrameGlowna extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField nazwiskoText;
     private javax.swing.JTextField poleCena;
     private javax.swing.JTextField poleIlosc;
     private javax.swing.JTextField poleNazwa;
     private javax.swing.JTextField poleVat;
+    private javax.swing.JCheckBox rabatCheckBox;
     // End of variables declaration//GEN-END:variables
 }

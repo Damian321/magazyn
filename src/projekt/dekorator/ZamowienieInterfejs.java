@@ -43,6 +43,11 @@ public abstract class ZamowienieInterfejs {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "ZamowienieInterfejs{" + "id=" + id + ", data_zamowienia=" + data_zamowienia + ", lista_towarow=" + lista_towarow + ", imie=" + imie + ", nazwisko=" + nazwisko + ", rabat=" + rabat + '}';
+    }
+
     public Date getData_zamowienia() {
         return data_zamowienia;
     }

@@ -22,17 +22,7 @@ public class Projekt {
         // TODO code application logic here
         DatabaseConn dbConn = DatabaseConn.GetInstance();
         dbConn.createConnection();
-   
-        Zamowienie zamowienie = new Zamowienie();
-        zamowienie.setImie("Alfred");
-        System.out.println("Zamowienie składa: "+ zamowienie.getImie());
-        ZamowienieInterfejs zam = new Rabat(new Faktura(zamowienie));
-       
-        
-        zam.RealizacjaZamowienia();
-    
-     
-       
+         
         JFrameGlowna glownaFrame = new JFrameGlowna();
         glownaFrame.setVisible(true);
     }

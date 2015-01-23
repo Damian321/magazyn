@@ -348,18 +348,18 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField2" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="imieText" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jTextField3" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="nazwiskoText" min="-2" pref="110" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                              <Component id="rabatCheckBox" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                              <Component id="fakturaCheckBox" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="133" max="32767" attributes="0"/>
@@ -388,10 +388,10 @@
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="imieText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nazwiskoText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rabatCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fakturaCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="292" max="32767" attributes="0"/>
                       <Component id="jButton7" min="-2" max="-2" attributes="0"/>
@@ -424,9 +424,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="imieText">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
+            <Component class="javax.swing.JTextField" name="nazwiskoText">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -438,7 +438,7 @@
                 <Property name="text" type="java.lang.String" value="Nazwisko"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+            <Component class="javax.swing.JCheckBox" name="rabatCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Rabat"/>
               </Properties>
@@ -446,7 +446,7 @@
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="rabatSet"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+            <Component class="javax.swing.JCheckBox" name="fakturaCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Faktura"/>
               </Properties>
